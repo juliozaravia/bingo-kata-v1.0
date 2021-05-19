@@ -20,15 +20,19 @@ I've separated the JavaScript code into modules to keep the functions that allow
 ## 5. Check out some images of how the game works. 
 
 1. **Welcome**.
+
 ![](https://i.ibb.co/W58w9Ls/welcome-bk.jpg)
 
 2. **Generating player card** 
+
 ![](https://i.ibb.co/Ns46dwM/generate-bk.jpg)
 
 3. **The caller displays random numbers** 
+
 ![](https://i.ibb.co/ydsm26T/call-bk.jpg)
 
 4. **You win!** 
+
 ![](https://i.ibb.co/wyGnfng/winner-bk.jpg)
 
 ## 5. Anything else?
