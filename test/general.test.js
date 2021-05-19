@@ -1,6 +1,6 @@
-const { bingoCaller, bingoChecker } = require('../bingo');
-const { complexRandomGenerator } = require('../helpers');
-const { messages } = require('../codes');
+const { bingoCaller, bingoChecker } = require('../src/callers');
+const { complexRandomGenerator } = require('../src/helpers');
+const { messages } = require('../src/utils/codes');
 
 const uniqueValues = (generatedArray) => {
   return Array.isArray(generatedArray) && new Set(generatedArray).size === generatedArray.length

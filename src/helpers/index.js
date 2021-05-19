@@ -6,14 +6,13 @@
  * Julio Zaravia <julio.zaravia.dev@gmail.com>
  */
 
-const { dimension, messages, control } = require('./codes');
-const { bingoCard } = require('./globals');
-const { notifier } = require('./globals');
+const { dimension, message, control } = require('../utils/codes');
+const { bingoCard, notifier } = require('../utils/globals');
 
 // Function that informs the player of the basic commands. 
 const welcome = () => {
   if (!notifier.length) {
-    process.stdout.write(messages.WELCOME);
+    process.stdout.write(message.WELCOME);
     notifier.push(control.MARKED);
   }
 };
@@ -81,7 +80,7 @@ const simpleCardValidator = () => {
   let horizontalResult = horizontalValidation.includes(false);
 
   if (!horizontalResult && bingoCard.length) {
-    return messages.YOU_WON;
+    return message.YOU_WON;
   }
 };
 
@@ -149,7 +148,7 @@ const specialCardValidator = () => {
     verticalValidation.colO.includes(false);
 
   if (horizontalResult || !verticalResult) {
-    return messages.YOU_WON;
+    return message.YOU_WON;
   }
 };
 

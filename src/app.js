@@ -6,41 +6,48 @@
  * Julio Zaravia <julio.zaravia.dev@gmail.com>
  */
 
-const { bingoCaller, bingoCardGenerator, bingoPrinter, bingoChecker } = require('./bingo');
-const { commands, messages } = require('./codes');
-const { bingoCard } = require('./globals');
+const { bingoCaller, bingoCardGenerator, bingoChecker, bingoPrinter } = require('./callers');
+const { command, message } = require('./utils/codes');
+const { bingoCard } = require('./utils/globals');
 const { welcome } = require('./helpers');
 
 /*
 Function that allows to capture the orders of the user entered in the console. 
 */
 welcome();
-process.stdout.write('prompt > ');
+process.stdout.write(message.PROMPT);
 process.stdin.on('data', function (data) {
   let args = data.toString().trim().split(' ');
   let cmd = args.shift();
 
   switch (cmd) {
-    case commands.CALL:
+    case command.CALL:
       let { response, updatedCard } = bingoCaller();
       bingoPrinter(response);
-      bingoPrinter(updatedCard);
+      if (updatedCard.length) bingoPrinter(message.CARD_TITLE);
+      if (updatedCard.length) bingoPrinter(updatedCard);
+      bingoPrinter(message.PROMPT);
+
       break;
-    case commands.GENERATE:
+    case command.GENERATE:
       if (bingoCard.length) {
-        bingoPrinter(messages.DO_NOT_CHEAT);
+        bingoPrinter(message.CHEATER_DETECTED);
       } else {
         let card = bingoCardGenerator();
+        bingoPrinter(message.CARD_TITLE);
         bingoPrinter(card);
-        bingoPrinter(messages.GENERATED_CARD);
+        bingoPrinter(message.GENERATED_CARD);
       }
+      bingoPrinter(message.PROMPT);
       break;
-    case commands.BINGO:
+    case command.BINGO:
       let result = bingoChecker();
       bingoPrinter(result);
+      bingoPrinter(message.PROMPT);
       break;
     default:
-      bingoPrinter(messages.INVALID_INPUT)
+      bingoPrinter(message.INVALID_INPUT)
+      bingoPrinter(message.PROMPT);
       break;
   }
 });
