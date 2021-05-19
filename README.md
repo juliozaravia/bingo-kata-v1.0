@@ -35,7 +35,14 @@ I've separated the JavaScript code into modules to keep the functions that allow
 
 ![](https://i.ibb.co/wyGnfng/winner-bk.jpg)
 
-## 5. Anything else?
+## 5. How to install it?
+Clone the repository to our local environment like any other GitHub repository and then:
+
+- Do `npm install` in the root folder.
+- Do `npm start` to start the game.
+- Do `npm test` to run the respective tests. 
+
+## 6. Anything else?
 - All constructive criticisms are very well received, you can send them to me at julio.zaravia.dev@gmail.com.
 - If you're going to criticize this project in an offensive way, please don't do it, remember that no one comes to this world knowing everything.
 - If you want to improve the code, you're free to do so, just let me know what you changed or improved so I can learn from you.
