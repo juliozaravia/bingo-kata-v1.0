@@ -58,7 +58,7 @@ const bingoCardGenerator = () => {
 const bingoChecker = () => {
   let response = message.NOT_YET;
   if (helper.simpleCardValidator()) {
-    response = bingo.simpleCardValidator();
+    response = helper.simpleCardValidator();
   }
   return response;
 };
